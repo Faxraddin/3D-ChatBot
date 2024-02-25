@@ -1,10 +1,14 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import App from './App.jsx'
-import './index.css'
+import React from "react";
+import { render } from "react-dom"; 
+import App from "./App";
+import ChatProvider from "./hooks/ChatProvider"; 
+import "./index.css";
 
-ReactDOM.createRoot(document.getElementById('root')).render(
+render(
   <React.StrictMode>
-    <App />
+    <ChatProvider>
+      <App />
+    </ChatProvider>
   </React.StrictMode>,
-)
+  document.getElementById("root")
+);
