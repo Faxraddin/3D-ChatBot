@@ -7,7 +7,6 @@ import {
   import { Suspense, useEffect, useRef, useState,React } from "react";
   import Avatar from "./Avatar";
   
-  
   const Dots = (props) => {
     const { loading } = useChat();
     const [loadingText, setLoadingText] = useState("");
