@@ -4,7 +4,7 @@ import { button, useControls } from "leva";
 import React, { useEffect, useRef, useState } from "react";
 
 import * as THREE from "three";
-import { useChat } from "../hooks/useChat";
+import useChat from "../hooks/useChat";
 
 const facialExpressions = {
   default: {},
@@ -101,7 +101,7 @@ const corresponding = {
 
 let setupMode = false;
 
-export function Avatar(props) {
+export default function Avatar(props) {
   const { nodes, materials, scene } = useGLTF(
     "/models/64f1a714fe61576b46f27ca2.glb"
   );

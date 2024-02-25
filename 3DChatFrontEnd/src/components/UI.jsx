@@ -1,7 +1,7 @@
-import { useRef } from "react";
-import { useChat } from "../hooks/useChat";
+import { useRef,React } from "react";
+import useChat from "../hooks/useChat";
 
-export const UI = ({ hidden, ...props }) => {
+export default function UI ({ hidden, ...props }) {
   const input = useRef();
   const { chat, loading, cameraZoomed, setCameraZoomed, message } = useChat();
 

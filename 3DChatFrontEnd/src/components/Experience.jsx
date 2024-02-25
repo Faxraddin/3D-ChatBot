@@ -4,9 +4,9 @@ import {
     Environment,
     Text,
   } from "@react-three/drei";
-  import { Suspense, useEffect, useRef, useState } from "react";
-  import { useChat } from "../hooks/useChat";
-  import { Avatar } from "./Avatar";
+  import { Suspense, useEffect, useRef, useState,React } from "react";
+  import Avatar from "./Avatar";
+  
   
   const Dots = (props) => {
     const { loading } = useChat();
@@ -37,7 +37,7 @@ import {
     );
   };
   
-  export const Experience = () => {
+  export default function Experience () {
     const cameraControls = useRef();
     const { cameraZoomed } = useChat();
   
@@ -56,7 +56,6 @@ import {
       <>
         <CameraControls ref={cameraControls} />
         <Environment preset="sunset" />
-        {/* Wrapping Dots into Suspense to prevent Blink when Troika/Font is loaded */}
         <Suspense>
           <Dots position-y={1.75} position-x={-0.02} />
         </Suspense>
