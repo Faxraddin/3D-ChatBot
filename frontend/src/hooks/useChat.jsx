@@ -1,10 +1,10 @@
-import { createContext, useEffect, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 
 const backendUrl = "http://localhost:3000";
 
 const ChatContext = createContext();
 
-export default function ChatProvider ({ children }) {
+export const ChatProvider = ({ children }) => {
   const chat = async (message) => {
     setLoading(true);
     const data = await fetch(`${backendUrl}/chat`, {
@@ -48,4 +48,12 @@ export default function ChatProvider ({ children }) {
       {children}
     </ChatContext.Provider>
   );
+};
+
+export const useChat = () => {
+  const context = useContext(ChatContext);
+  if (!context) {
+    throw new Error("useChat must be used within a ChatProvider");
+  }
+  return context;
 };
